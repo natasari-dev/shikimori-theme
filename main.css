@@ -1,18 +1,27 @@
-/* colors
+/* Палитра
 
-#252525 body bg
-#1a1a1a	section bg
-#707070 author info
-#262626 delimiter
-#4cac90 green btn
-#f95496 pink btn
-#383838 grey btn
+blue #584ebf
+blue lighten 15% #8d86d3
+blue lighten 30% #c2bee8
+
+pink #f95496
+pink lighten 15% #fc9ec3
+pink lighten 30% #fee8f1
+
+green #4cac90
+
+#383838 grey 22% shape
+#1a1a1a	grey 10% section bg
+#a8a8a8 grey 66% section header
+#262626 grey 15% border & bg
+#545454 grey 33% section text
+#707070 grey 44% section text 2
 
 */
 
 
 
-/* fonts */
+/* Шрифты */
 
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap&subset=cyrillic');
 
@@ -43,13 +52,17 @@
 
 
 
-/* scaffolding */
+/* Параметры */
+
+* {
+	box-sizing: border-box;
+}
 
 body {
 	font-family: 'Roboto', sans-serif;
 	color: #fff;
 
-	background: #252525;
+	background: #262626;
 }
 
 .tipsy {
@@ -60,7 +73,7 @@ body {
 
 
 
-/* .l-top_menu-v2 */
+/* Меню */
 
 .l-top_menu-v2 {
 	margin-bottom: 25px;
@@ -70,24 +83,14 @@ body {
 
 
 
-/* .l-page */
+/* Контент */
 
-.x1000 .l-page {
-	max-width: 1000px;
-}
-
-@media screen and (min-width: 1200px) { 
-
-	.l-page {
-		padding: 0 25px;
-	}
-
-}
-
-.l-page {
+.x1000 .l-page,
+.x1200 .l-page {
 	position: static;
 	z-index: auto;
 
+	max-width: 1000px;
 	margin: 0 auto;
 	padding: 0;
 
@@ -100,7 +103,7 @@ body {
 
 
 
-/* .profile-head */
+/* Контент | Часть 1 */
 
 .profile-head {
 	display: flex;
@@ -113,6 +116,7 @@ body {
 	display: block;
 	height: 210px;
 	width: 100%;
+	transform: scaleX(-1);
 
 	background: #ff000030;
 }
@@ -121,7 +125,7 @@ body {
 
 
 
-/* .c-brief */
+/* Информация */
 
 .p-profiles .profile-head .c-brief {
 	position: relative;
@@ -129,18 +133,20 @@ body {
 	order: 1;
 	width: 100%;
 	margin: 0;
-	margin-bottom: 10px;
+	margin-bottom: 6px;
 	padding: 0 25px;
 
 	background: #1a1a1a;
 }
 
-@media screen and (min-width: 768px) {
+/**/
 
-	.p-profiles .profile-head .c-brief .avatar {
-		margin: 0;
-	}
 
+
+/* Информация | Аватар */
+
+.p-profiles .profile-head .c-brief .avatar {
+	margin: 0;
 }
 
 .p-profiles .profile-head .c-brief .avatar {
@@ -154,6 +160,12 @@ body {
 
 	border-radius: 50%;
 }
+
+/**/
+
+
+
+/* Информация | Профиль */
 
 .p-profiles .profile-head .c-brief .avatar .profile-actions {
 	display: flex;
@@ -220,6 +232,12 @@ body {
 .p-profiles .profile-head .c-brief .avatar .profile-actions a:nth-child(3):after {
 	content: "Мои баны";
 }
+
+/**/
+
+
+
+/* Информация | Данные */
 
 .p-profiles .profile-head .c-brief header {
 	position: absolute;
@@ -297,7 +315,7 @@ body {
 
 
 
-/* .c-history.x3 */
+/* История */
 
 .p-profiles .profile-head .c-history.x3 {
 	order: 2;
@@ -308,11 +326,243 @@ body {
 
 
 
-/* .c-info */
+/* Список аниме и манги */
 
 .p-profiles .profile-head .c-info {
 	order: 3;
+	width: 300px;
+	margin-left: auto;
 	overflow: visible;
+}
+
+.p-profiles .profile-head .c-info .c-lists-info .b-stats_bar {
+	display: flex;
+	flex-direction: column;
+	margin: 0;
+	margin-bottom: 6px;
+	padding: 10px 25px;
+
+	background: #1a1a1a;
+}
+
+/**/
+
+
+
+/* Список аниме и манги | Заголовок */
+
+.b-stats_bar a.title {
+	display: block;
+	order: 1;
+	padding: 15px 0;
+
+	font-weight: normal;
+	line-height: 1;
+	font-size: 18px;
+	color: #a8a8a8;
+
+	border-bottom: 1px solid #262626;
+}
+
+.b-stats_bar a.title:hover {
+	color: #fff;
+	text-decoration: none;
+
+	border-color: #262626;
+}
+
+.b-stats_bar a.title:active {
+	color: #ffffff30;
+}
+
+/**/
+
+
+
+/* Список аниме и манги | Совместимость */
+
+.compatibility {
+	order: 2;
+}
+
+.p-profiles .profile-head .c-info .c-lists-info .b-stats_bar .compatibility a {
+	float: none;
+	display: block;
+	margin: 0;
+	padding: 15px 0;
+
+	font-size: 11px;
+	color: #545454;
+	text-transform: uppercase;
+
+	cursor: pointer;
+}
+
+.p-profiles .profile-head .c-info .c-lists-info .b-stats_bar .compatibility a:hover {
+	color: #fff;
+	text-decoration: none;
+}
+
+.p-profiles .profile-head .c-info .c-lists-info .b-stats_bar .compatibility a:active {
+	color: #ffffff30;
+}
+
+/**/
+
+
+
+/* Список аниме и манги | Диаграмма */
+
+.b-stats_bar .bar {
+	position: relative;
+
+	order: 3;
+	width: 100%;
+	height: auto;
+	overflow: visible;
+
+	font-size: 0;
+	line-height: normal;
+	white-space: normal;
+}
+
+.b-stats_bar .bar .first,
+.b-stats_bar .bar .second,
+.b-stats_bar .bar .third {
+	display: inline-block;
+	height: 3px;
+
+	font-weight: normal;
+	font-size: 0;
+	line-height: normal;
+	color: #fff;
+	white-space: normal;
+	text-align: left;
+	
+	cursor: auto;
+}
+
+/**/
+
+
+
+/* Список аниме и манги | Диаграмма | Цвет секций */
+
+.b-stats_bar.anime .bar .first {
+	background: #584ebf;
+}
+
+.b-stats_bar.anime .bar .second {
+	background: #8d86d3;
+}
+
+.b-stats_bar.anime .bar .third {
+	background: #c2bee8;
+}
+
+.b-stats_bar.manga .bar .first {
+	background: #f95496;
+}
+
+.b-stats_bar.manga .bar .second {
+	background: #fc9ec3;
+}
+
+.b-stats_bar.manga .bar .third {
+	background: #fee8f1;
+}
+
+/**/
+
+
+
+/* Список аниме и манги | Категории */
+
+.b-stats_bar .stat_names {
+	order: 4;
+	padding: 15px 0;
+
+	font-size: 11px;
+	line-height: 1;
+}
+
+.b-stats_bar .stat_names .stat_name {
+	display: block;
+}
+
+.b-stats_bar .stat_names .stat_name:after {
+	display: none;
+}
+
+/**/
+
+
+
+/* Список аниме и манги | Категории | Ссылки */
+
+.b-stats_bar .stat_names .stat_name a {
+	display: flex;
+	padding: 5px 0;
+
+	cursor: pointer;
+}
+
+/**/
+
+
+
+/* Список аниме и манги | Категории | Цвет ссылок */
+
+.b-stats_bar.anime .stat_names .stat_name[data-type="planned"] a {
+	color: #584ebf;
+}
+
+.b-stats_bar.anime .stat_names .stat_name[data-type="watching,rewatching"] a,
+.b-stats_bar.anime .stat_names .stat_name[data-type="completed"] a,
+.b-stats_bar.anime .stat_names .stat_name[data-type="on_hold"] a {
+	color: #8d86d3;
+}
+
+.b-stats_bar.anime .stat_names .stat_name[data-type="dropped"] a {
+	color: #c2bee8;
+}
+
+.b-stats_bar.manga .stat_names .stat_name[data-type="planned"] a {
+	color: #f95496;
+}
+
+.b-stats_bar.manga .stat_names .stat_name[data-type="watching,rewatching"] a,
+.b-stats_bar.manga .stat_names .stat_name[data-type="completed"] a,
+.b-stats_bar.manga .stat_names .stat_name[data-type="on_hold"] a {
+	color: #fc9ec3;
+}
+
+.b-stats_bar.manga .stat_names .stat_name[data-type="dropped"] a {
+	color: #fee8f1;
+}
+
+.b-stats_bar .stat_names .stat_name a:hover {
+	color: #fff !important;
+	text-decoration: none !important;
+}
+
+.b-stats_bar .stat_names .stat_name a:active {
+	color: #ffffff30 !important;
+}
+
+/**/
+
+
+
+/* Список аниме и манги | Категории | Счетчик */
+
+.b-stats_bar .stat_names .stat_name .size {
+	margin-left: auto;
+}
+
+.b-stats_bar .stat_names .stat_name .size:before,
+.b-stats_bar .stat_names .stat_name .size:after {
+	display: none;
 }
 
 /**/
